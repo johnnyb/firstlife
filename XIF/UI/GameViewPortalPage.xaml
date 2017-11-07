@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage Title="My Game" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XIF.UI.GameViewPortalPage">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Character">
+            <StackLayout>
+                <Label>Your Name:</Label>
+                <Label x:Name="CharacterName" />
+                <Button Text="Show Inventory" Clicked="ShowInventoryClicked" />
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage Title="Location">
+            <ScrollView>
+                <StackLayout>
+                    <Label>Current Location:</Label>
+                    <Label x:Name="LocationName" />
+
+                    <Image x:Name="LocationImage" />
+                
+                    <Label>Description:</Label>
+                    <Label x:Name="LocationDescription" />
+
+                    <Label x:Name="VisibleItemsLabel">Visible Items:</Label>
+                    <StackLayout x:Name="VisibleItems">
+                    </StackLayout>
+
+                    <Label x:Name="DestinationDoorwaysLabel">Directions:</Label>
+                    <StackLayout x:Name="DestinationDoorways">
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
