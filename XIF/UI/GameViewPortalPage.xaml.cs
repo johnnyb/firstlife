@@ -51,11 +51,11 @@ namespace XIF.UI
                         action_list.Add("Take");
                     }
 
-                    var result = await DisplayActionSheet("Choose Action", "Cancel", null, action_list.ToArray());
+                    var action = await DisplayActionSheet("Choose Action", "Cancel", null, action_list.ToArray());
 
-                    if (!string.IsNullOrWhiteSpace(result))
+                    if (!string.IsNullOrWhiteSpace(action) && action != "Cancel")
                     {
-                        if (result == "Take")
+                        if (action == "Take")
                         {
                             loc.Items.Remove(itm);
                             ch.InventoryItems.Add(itm);
@@ -63,6 +63,9 @@ namespace XIF.UI
                         }
                         else
                         {
+                            // FIXME - put in modifiers later
+                            string result = itm.PerformAction(ch, action, null);
+                            await DisplayAlert("Action Result", result, "OK");
                         }
                     }
 

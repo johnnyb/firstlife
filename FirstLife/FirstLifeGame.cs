@@ -20,13 +20,13 @@ namespace FirstLife
             bedroom.Items.Add(watch);
 
             var kitchen = new Room { Name = "Kitchen" };
-            var banana = new BasicObject { Name = "Banana" };
+            var banana = new EdibleObject { Name = "Banana" };
             kitchen.Items.Add(banana);
-            var apple = new BasicObject { Name = "Apple" };
+            var apple = new EdibleObject { Name = "Apple" };
             kitchen.Items.Add(apple);
-            var pear = new BasicObject { Name = "Pear" };
+            var pear = new EdibleObject { Name = "Pear" };
             kitchen.Items.Add(pear);
-            var filet = new BasicObject { Name = "Filet Mignon" };
+            var filet = new EdibleObject { Name = "Filet Mignon" };
             kitchen.Items.Add(filet);
 
             var hallway = new Room { Name = "Hallway" };

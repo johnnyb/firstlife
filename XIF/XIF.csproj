@@ -40,6 +40,7 @@
     <Compile Include="UI\GameViewPortalPage.xaml.cs">
       <DependentUpon>GameViewPortalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game\EdibleObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
