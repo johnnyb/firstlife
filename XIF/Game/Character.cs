@@ -15,17 +15,22 @@ namespace XIF.Game
         {
         }
 
-        public List<string> GetAvailableActions()
+        public List<string> GetAvailableActions(Character ch)
         {
             throw new NotImplementedException();
         }
 
-        public List<string> GetModifiersForAction(string action)
+        public List<string> GetModifiersForAction(Character ch, string action)
         {
             throw new NotImplementedException();
         }
 
-        public List<IGameObject> GetValidObjectsForModifier(string action, string modifier, Character ch)
+        public List<IGameObject> GetValidObjectsForModifier(Character ch, string action, string modifier)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string PerformAction(Character ch, string action, IDictionary<string, IGameObject> modifiers)
         {
             throw new NotImplementedException();
         }

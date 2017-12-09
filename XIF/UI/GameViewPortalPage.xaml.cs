@@ -32,9 +32,44 @@ namespace XIF.UI
             VisibleItems.Children.Clear();
             VisibleItemsLabel.IsVisible = false;
             foreach(var itm in loc.GetVisibleItems()) {
+                var item_layout = new StackLayout();
+                item_layout.Orientation = StackOrientation.Horizontal;
+
                 var lbl = new Label();
                 lbl.Text = itm.Name;
-                VisibleItems.Children.Add(lbl);
+                lbl.HorizontalOptions = LayoutOptions.FillAndExpand;
+                item_layout.Children.Add(lbl);
+
+                var btn = new Button();
+                btn.Text = "Actions";
+                item_layout.Children.Add(btn);
+                btn.Clicked += async (s, e) =>
+                {
+                    var action_list = itm.GetAvailableActions(ch);
+                    if (itm.CanBeTaken)
+                    {
+                        action_list.Add("Take");
+                    }
+
+                    var result = await DisplayActionSheet("Choose Action", "Cancel", null, action_list.ToArray());
+
+                    if (!string.IsNullOrWhiteSpace(result))
+                    {
+                        if (result == "Take")
+                        {
+                            loc.Items.Remove(itm);
+                            ch.InventoryItems.Add(itm);
+                            await DisplayAlert("Item Taken", "This item has been taken and added to your inventory", "OK");
+                        }
+                        else
+                        {
+                        }
+                    }
+
+                    ResetPage();
+                };
+
+                VisibleItems.Children.Add(item_layout);
                 VisibleItemsLabel.IsVisible = true;
             }
 
@@ -54,7 +89,13 @@ namespace XIF.UI
         }
 
         public void ShowInventoryClicked(object o, EventArgs e) {
-            
+            var items = new List<string>();
+            foreach (var itm in ActiveGame.MainCharacter.InventoryItems)
+            {
+                items.Add(itm.Name);
+            }
+
+            DisplayAlert("Inventory Items", "Your inventor items are: " + string.Join(", ", items), "OK");
         }
     }
 }

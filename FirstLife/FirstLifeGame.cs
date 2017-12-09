@@ -22,6 +22,12 @@ namespace FirstLife
             var kitchen = new Room { Name = "Kitchen" };
             var banana = new BasicObject { Name = "Banana" };
             kitchen.Items.Add(banana);
+            var apple = new BasicObject { Name = "Apple" };
+            kitchen.Items.Add(apple);
+            var pear = new BasicObject { Name = "Pear" };
+            kitchen.Items.Add(pear);
+            var filet = new BasicObject { Name = "Filet Mignon" };
+            kitchen.Items.Add(filet);
 
             var hallway = new Room { Name = "Hallway" };
 
@@ -32,10 +38,12 @@ namespace FirstLife
             Doorway.CreateTwoWayDoor(living_room, hallway, "East", "West");
             Doorway.CreateTwoWayDoor(living_room, bathroom, "West", "East");
 
+
             var hotel_map = new Map
             {
                 EntryPoints = new List<Room> { living_room }
             };
+
 
             var character = new Character();
             character.Location = living_room;

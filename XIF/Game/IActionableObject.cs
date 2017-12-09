@@ -4,8 +4,9 @@ namespace XIF.Game
 {
     public interface IActionableObject : IGameObject
     {
-        List<string> GetAvailableActions();
-        List<string> GetModifiersForAction(string action);
-        List<IGameObject> GetValidObjectsForModifier(string action, string modifier, Character ch);
+        List<string> GetAvailableActions(Character ch);
+        List<string> GetModifiersForAction(Character ch, string action);
+        List<IGameObject> GetValidObjectsForModifier(Character ch, string action, string modifier);
+        string PerformAction(Character ch, string action, IDictionary<string, IGameObject> modifiers);
     }
 }
