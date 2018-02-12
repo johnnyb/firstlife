@@ -28,6 +28,15 @@ namespace XIF.UI
             LocationDescription.Text = loc.Description;
             LocationImage.Source = loc.DisplayImage;
 
+            // Show visible characters in the room
+            VisibleCharacters.Children.Clear();
+            foreach (var character in loc.Characters)
+            {
+                var lbl = new Label();
+                lbl.Text = character.Name;
+                VisibleCharacters.Children.Add(lbl);
+            }
+
             // Show visible items in the room
             VisibleItems.Children.Clear();
             VisibleItemsLabel.IsVisible = false;
@@ -55,6 +64,7 @@ namespace XIF.UI
 
                     if (!string.IsNullOrWhiteSpace(action) && action != "Cancel")
                     {
+                        // *** This Performs an action ** //
                         if (action == "Take")
                         {
                             loc.Items.Remove(itm);
@@ -67,6 +77,9 @@ namespace XIF.UI
                             string result = itm.PerformAction(ch, action, null);
                             await DisplayAlert("Action Result", result, "OK");
                         }
+
+                        // *** After Performing Action *** //
+                        ActiveGame.PerformAutomaticActions();
                     }
 
                     ResetPage();
@@ -84,6 +97,7 @@ namespace XIF.UI
                 btn.Text = doorway.Direction;
                 btn.Clicked += (s, e) => {
                     ch.Location = doorway.Destination;
+                    ActiveGame.PerformAutomaticActions();
                     ResetPage();
                 };
                 DestinationDoorways.Children.Add(btn);

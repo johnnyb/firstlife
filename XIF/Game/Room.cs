@@ -44,6 +44,10 @@ namespace XIF.Game
             throw new NotImplementedException();
         }
 
+        public virtual void AfterTurnAutomaticAction(Game g)
+        {
+        }
+
         public Room()
         {
            

@@ -8,5 +8,6 @@ namespace XIF.Game
         List<string> GetModifiersForAction(Character ch, string action);
         List<IGameObject> GetValidObjectsForModifier(Character ch, string action, string modifier);
         string PerformAction(Character ch, string action, IDictionary<string, IGameObject> modifiers);
+        void AfterTurnAutomaticAction(Game g);
     }
 }

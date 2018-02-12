@@ -9,11 +9,17 @@ namespace FirstLife
     {
         public FirstLifeGame()
         {
-            var living_room = new Room { 
-                Name = "Living Room", 
-                Description = "This is your living room, which you haven't cleaned in weeks.", 
-                DisplayImage = ImageSource.FromResource("FirstLife.Resources.RoomImages.LivingRoom.png") 
+            var walker = new RandomWalker();
+
+            var living_room = new Room
+            {
+                Name = "Living Room",
+                Description = "This is your living room, which you haven't cleaned in weeks.",
+                DisplayImage = ImageSource.FromResource("FirstLife.Resources.RoomImages.LivingRoom.png"),
+                Characters = new List<Character> { walker }
             };
+            walker.Location = living_room;
+
 
             var bedroom = new Room { Name = "Bedroom" };
             var watch = new BasicObject { Name = "Watch" };

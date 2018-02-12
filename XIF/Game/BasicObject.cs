@@ -32,5 +32,9 @@ namespace XIF.Game
         {
             return null;
         }
+
+        public virtual void AfterTurnAutomaticAction(Game g)
+        {
+        }
     }
 }

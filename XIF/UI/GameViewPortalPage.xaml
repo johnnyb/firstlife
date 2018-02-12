@@ -21,6 +21,10 @@
                     <Label>Description:</Label>
                     <Label x:Name="LocationDescription" />
 
+                    <Label x:Name="VisibleCharactersLabel">Visible Characters:</Label>
+                    <StackLayout x:Name="VisibleCharacters">
+                    </StackLayout>
+
                     <Label x:Name="VisibleItemsLabel">Visible Items:</Label>
                     <StackLayout x:Name="VisibleItems">
                     </StackLayout>

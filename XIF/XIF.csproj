@@ -41,6 +41,7 @@
       <DependentUpon>GameViewPortalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game\EdibleObject.cs" />
+    <Compile Include="Game\RandomWalker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Game\" />
