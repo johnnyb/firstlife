@@ -7,7 +7,8 @@ namespace XIF.UI
 {
     public partial class GameViewPortalPage : MasterDetailPage
     {
-        public Game.Game ActiveGame { get; set; }
+        private Game.Game activeGame;
+        public Game.Game ActiveGame { get { return activeGame; } set { activeGame = value; activeGame.Initialize(); } }
 
         public GameViewPortalPage()
         {

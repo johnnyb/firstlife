@@ -7,6 +7,7 @@ namespace XIF.Game
         public virtual string Name { get; set; } = "Unnamed Character";
         public virtual int Health { get; set; } = 100;
         public virtual Room Location { get; set; }
+
         public virtual List<IActionableObject> InventoryItems { get; set; } = new List<IActionableObject>();
 
         public virtual bool CanBeTaken => false;

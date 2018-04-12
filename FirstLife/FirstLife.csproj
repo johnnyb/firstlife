@@ -31,6 +31,10 @@
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="FirstLifePage.xaml" />
     <EmbeddedResource Include="Resources\RoomImages\LivingRoom.png" />
+    <EmbeddedResource Include="FirstLifeGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -40,7 +44,9 @@
       <DependentUpon>FirstLifePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FirstLifeGame.cs" />
+    <Compile Include="FirstLifeGame.xaml.cs">
+      <DependentUpon>FirstLifeGame.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XIF\XIF.csproj">

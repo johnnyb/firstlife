@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xif:Game 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:xif="clr-namespace:XIF.Game;assembly=XIF"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="FirstLife.FirstLifeGame">
+    <xif:Game.Maps>
+        <xif:Map>
+            <xif:Map.Rooms>
+                <!-- Outside -->
+                <xif:Room x:Name="OutsideNorthEast" Name="Outside" Description="You are outside.">
+                    <xif:Room.Doorways>
+                        <xif:Doorway Direction="North East" Destination="{Reference NETowerFloor1}" />
+                        <xif:Doorway Direction="Barracks Door (South)" Destination="{Reference BarracksNorthEnd}" />
+                    </xif:Room.Doorways>
+                </xif:Room>
+                <!-- End Outside -->
+
+                <!-- NorthEast Tower -->
+                <xif:Room x:Name="NETowerFloor1" Name="Northeast Guard Tower, First Floor" Description="You are in a guard tower.  There is a ladder to the second floor.">
+                    <xif:Room.Items>
+                        <xif:BasicObject Name="Chair" CanBeTaken="false" />
+                        <xif:BasicObject Name="Crate" CanBeTaken="false" />
+                        <xif:BasicObject Name="Bed" CanBeTaken="false" />
+                    </xif:Room.Items>
+                    <xif:Room.Doorways>
+                        <xif:Doorway Direction="Up the Ladder" Destination="{Reference NETowerFloor2}" />
+                        <xif:Doorway Direction="Outside" Destination="{Reference OutsideNorthEast}" />
+                    </xif:Room.Doorways>
+                </xif:Room>
+                <xif:Room x:Name="NETowerFloor2" Name="Northeast Guard Tower, Second Floor" Description="You are on the second floor of the guard tower.  There is a ladder going up and down.">
+                    <xif:Room.Items>
+                        <xif:BasicObject Name="Ammo" />
+                        <xif:BasicObject Name="Sniper Rifle" />
+                    </xif:Room.Items>
+                    <xif:Room.Doorways>
+                        <xif:Doorway Direction="Down the Ladder" Destination="{Reference NETowerFloor1}" />
+                        <xif:Doorway Direction="Up the Ladder" Destination="{Reference NETowerRoof}" />                        
+                    </xif:Room.Doorways>                    
+                </xif:Room>
+                <xif:Room x:Name="NETowerRoof" Name="Northeast Guard Tower, Roof" Description="You are on the roof of the guard tower, overlooking the entire compound">
+                    <xif:Room.Doorways>
+                        <xif:Doorway Direction="Down the Ladder" Destination="{Reference NETowerFloor2}" />
+                    </xif:Room.Doorways>
+                    <xif:Room.Items>
+                        <xif:BasicObject Name="SCAR Rifle" />
+                        <xif:BasicObject Name="Chair" CanBeTaken="false" />
+                        <xif:BasicObject Name="Howitzer" CanBeTaken="false" />
+                    </xif:Room.Items>
+                </xif:Room>
+                <!-- END of NorthEast Tower -->
+
+                <!-- Barracks -->
+                <xif:Room x:Name="BarracksNorthEnd" Name="Barracks" Description="You are in the main area of the barracks.">
+                    <xif:Room.Doorways>
+                        <xif:Doorway Direction="Door (North)" Destination="{Reference OutsideNorthEast}" />
+                        <xif:Doorway Direction="West" Destination="{Reference BarracksWestEnd}" />
+                        <xif:Doorway Direction="East" Destination="{Reference BarracksEastEnd}" />
+                        <xif:Doorway Direction="South" Destination="{Reference BarracksBathroom}" />
+                    </xif:Room.Doorways>                    
+                </xif:Room>
+                <xif:Room x:Name="BarracksWestEnd" Name="Barracks (West)" Description="There are many beds for soldiers">
+                    <xif:Room.Doorways>
+                        <xif:Doorway Direction="East" Destination="{Reference BarracksNorthEnd}" />
+                    </xif:Room.Doorways>
+                </xif:Room>
+                <xif:Room x:Name="BarracksEastEnd" Name="Barracks (East)" Description="You are in the arming area of the barracks">
+                    <xif:Room.Doorways>
+                        <xif:Doorway Direction="West" Destination="{Reference BarracksNorthEnd}" />
+                        <xif:Doorway Direction="South" Destination="{Reference BarracksBathroom}" />
+                    </xif:Room.Doorways>
+                </xif:Room>
+                <xif:Room x:Name="BarracksBathroom" Name="Barracks (Bathroom)" Description="You are in the bathroom">
+                    <xif:Room.Doorways>
+                        <xif:Doorway Direction="North West" Destination="{Reference BarracksNorthEnd}" />
+                        <xif:Doorway Direction="North East" Destination="{Reference BarracksEastEnd}" />
+                    </xif:Room.Doorways>
+                </xif:Room>
+                <!-- END of Barracks -->
+            </xif:Map.Rooms>
+        </xif:Map>
+    </xif:Game.Maps>
+    <xif:Game.Characters>
+        <xif:RandomWalker Name="Jim" Location="{Reference NETowerRoof}" />
+        <xif:RandomWalker Name="Bob" Location="{Reference BarracksNorthEnd}" />
+    </xif:Game.Characters>
+    <xif:Game.MainCharacter>
+        <xif:Character Location="{Reference OutsideNorthEast}" />
+    </xif:Game.MainCharacter>
+</xif:Game>

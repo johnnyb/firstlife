@@ -16,6 +16,7 @@ namespace FirstLife
             var pg = new XIF.UI.GameViewPortalPage();
 
             var game = new FirstLifeGame();
+            game.Initialize();
 
 
             pg.ActiveGame = game;

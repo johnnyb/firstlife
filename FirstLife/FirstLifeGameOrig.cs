@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace FirstLife
 {
-    public class FirstLifeGame : XIF.Game.Game
+    public class FirstLifeGameOrig : XIF.Game.Game
     {
-        public FirstLifeGame()
+        public FirstLifeGameOrig()
         {
             var walker = new RandomWalker();
 
