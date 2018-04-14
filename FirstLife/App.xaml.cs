@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using System.Reflection;
 
 namespace FirstLife
 {
@@ -7,7 +8,7 @@ namespace FirstLife
         public App()
         {
             InitializeComponent();
-
+            XIF.Game.Game.ResourceAssembly = typeof(App).GetTypeInfo().Assembly;
             MainPage = new FirstLifePage();
         }
 

@@ -358,7 +358,7 @@
       },
       "XIF/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.0",
+        "framework": "Unsupported,Version=v0.0",
         "dependencies": {
           "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
           "NETStandard.Library": "1.6.0",
@@ -2273,15 +2273,23 @@
       }
     },
     "dependencies": {
-      "NETStandard.Library": "1.6.0",
       "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-      "Xamarin.Forms": {
-        "target": "Package",
-        "version": "[2.5.1.444934, )"
-      }
+      "NETStandard.Library": "1.6.0",
+      "Xamarin.Forms": "2.5.1.444934"
     },
     "frameworks": {
       "netstandard1.0": {}
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project XIF is not compatible with netstandard1.0 (.NETStandard,Version=v1.0). Project XIF supports: netstandard1.3 (.NETStandard,Version=v1.3)",
+      "libraryId": "XIF",
+      "targetGraphs": [
+        ".NETStandard,Version=v1.0"
+      ]
+    }
+  ]
 }

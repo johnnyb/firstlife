@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace XIF.Game
 {
     public class Game : Xamarin.Forms.Element
     {
+        public static Assembly ResourceAssembly { get; set; }
         public Random RandomGenerator { get; set; } = new Random();
         public Character MainCharacter { get; set; }
         public List<Map> Maps { get; set; } = new List<Map>();
